@@ -1,6 +1,9 @@
 package com.flores.testingandroid.presentation.presenter;
 
 import com.flores.testingandroid.domain.useCase.UserUseCase;
+
+import java.util.Timer;
+
 /**
  * LoginPresenter
  *
@@ -17,8 +20,14 @@ public class LoginPresenter implements LoginContract.LoginPresenter {
 
     @Override
     public void verificationUser(String user) {
-        if (!UserUseCase.validationUser(user)) {
-
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+        if (!UserUseCase.validationUser(user))
+            loginView.success();
+        else
+            loginView.failure();
     }
 }

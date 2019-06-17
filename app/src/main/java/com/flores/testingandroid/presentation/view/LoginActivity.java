@@ -1,6 +1,5 @@
 package com.flores.testingandroid.presentation.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -42,33 +41,32 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
             @Override
             public void onClick(View v) {
                 loginPresenter.verificationUser(etUserName.getText().toString().trim());
-                enableButtonLogin(false);
             }
         });
     }
 
     @Override
-    public void ShowProgress() {
+    public void loading() {
+        btnSignIn.setEnabled(false);
         btnSignIn.setText(R.string.loginActivity_loading);
     }
 
     @Override
-    public void enableButtonLogin(boolean enable) {
-        btnSignIn.setEnabled(enable);
-    }
-
-    @Override
-    public void showDialogAlert(String message) {
-
+    public void failure() {
+        btnSignIn.setEnabled(true);
+        btnSignIn.setText(R.string.loginActivity_singIn);
     }
 
     @Override
     public void success() {
-
+        btnSignIn.setEnabled(true);
+        btnSignIn.setText(R.string.loginActivity_singIn);
+        nextToActivity(new HomeActivity());
+        finish();
     }
 
     @Override
     protected int getLayoutResourceId() {
-        return R.layout.activity_main;
+        return R.layout.activity_login;
     }
 }

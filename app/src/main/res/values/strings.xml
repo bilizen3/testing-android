@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">testing-android</string>
+    <string name="loginActivity_loading">Loading...</string>
+    <string name="loginActivity_singIn">Sing in</string>
+
 </resources>

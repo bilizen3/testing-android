@@ -1,7 +1,6 @@
 package com.flores.testingandroid.presentation.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +26,6 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setContentView(R.layout.activity_main);
         ui();
         settingBtnLogin();
     }
@@ -44,13 +42,33 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
             @Override
             public void onClick(View v) {
                 loginPresenter.verificationUser(etUserName.getText().toString().trim());
+                enableButtonLogin(false);
             }
         });
     }
 
+    @Override
+    public void ShowProgress() {
+        btnSignIn.setText(R.string.loginActivity_loading);
+    }
 
     @Override
-    public void showAlert() {
-        showToast("user not valide!!");
+    public void enableButtonLogin(boolean enable) {
+        btnSignIn.setEnabled(enable);
+    }
+
+    @Override
+    public void showDialogAlert(String message) {
+
+    }
+
+    @Override
+    public void success() {
+
+    }
+
+    @Override
+    protected int getLayoutResourceId() {
+        return R.layout.activity_main;
     }
 }

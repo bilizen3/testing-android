@@ -4,10 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
+    android:paddingBottom="200dp"
     tools:context=".presentation.view.LoginActivity">
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etUserName"
+        android:id="@+id/etUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="User"
@@ -24,8 +26,10 @@
         android:id="@+id/btnSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign In"
+        android:text="@string/loginActivity_singIn"
         android:textAllCaps="false"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:background="@color/colorBlue800"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

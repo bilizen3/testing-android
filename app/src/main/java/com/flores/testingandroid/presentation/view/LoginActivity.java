@@ -31,7 +31,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
     }
 
     private void ui() {
-        etUserName = findViewById(R.id.etUserName);
+        etUserName = findViewById(R.id.etUser);
         etPassword = findViewById(R.id.etPassword);
         btnSignIn = findViewById(R.id.btnSignIn);
         loginPresenter = new LoginPresenter(this);

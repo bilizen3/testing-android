@@ -17,7 +17,7 @@ import com.flores.testingandroid.presentation.presenter.LoginPresenter;
  */
 public class LoginActivity extends BaseActivity implements LoginContract.LoginView {
 
-    private EditText etUserName;
+    private EditText etUser;
     private EditText etPassword;
     private Button btnSignIn;
     private LoginContract.LoginPresenter loginPresenter;
@@ -30,7 +30,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
     }
 
     private void ui() {
-        etUserName = findViewById(R.id.etUser);
+        etUser = findViewById(R.id.etUser);
         etPassword = findViewById(R.id.etPassword);
         btnSignIn = findViewById(R.id.btnSignIn);
         loginPresenter = new LoginPresenter(this);
@@ -40,7 +40,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginPresenter.verificationUser(etUserName.getText().toString().trim());
+                loginPresenter.verificationUser(etUser.getText().toString().trim());
             }
         });
     }
@@ -48,12 +48,14 @@ public class LoginActivity extends BaseActivity implements LoginContract.LoginVi
     @Override
     public void loading() {
         btnSignIn.setEnabled(false);
+        btnSignIn.setBackgroundResource(R.drawable.background_button_disable);
         btnSignIn.setText(R.string.loginActivity_loading);
     }
 
     @Override
     public void failure() {
         btnSignIn.setEnabled(true);
+        btnSignIn.setBackgroundResource(R.drawable.background_button_enable);
         btnSignIn.setText(R.string.loginActivity_singIn);
     }
 

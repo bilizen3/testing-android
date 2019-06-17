@@ -1,4 +1,5 @@
 package com.flores.testingandroid.presentation.presenter;
+
 /**
  * LoginContract
  *
@@ -7,14 +8,16 @@ package com.flores.testingandroid.presentation.presenter;
  */
 public interface LoginContract {
 
-    interface LoginView{
-        void showDialogAlert(String message);
-        void ShowProgress();
+    interface LoginView {
+
+        void failure();
+
+        void loading();
+
         void success();
-        void enableButtonLogin(boolean enable);
     }
 
-    interface LoginPresenter{
+    interface LoginPresenter {
         void verificationUser(String user);
     }
 }

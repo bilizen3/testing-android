@@ -1,6 +1,7 @@
 package com.flores.testingandroid.presentation.presenter;
 
 import com.flores.testingandroid.domain.useCase.UserUseCase;
+
 /**
  * LoginPresenter
  *
@@ -17,8 +18,10 @@ public class LoginPresenter implements LoginContract.LoginPresenter {
 
     @Override
     public void verificationUser(String user) {
-        if (!UserUseCase.validationUser(user)) {
-
-        }
+        loginView.loading();
+        if (UserUseCase.validationUser(user))
+            loginView.success();
+        else
+            loginView.failure();
     }
 }
